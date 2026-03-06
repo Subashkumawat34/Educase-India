@@ -8,18 +8,16 @@ export default function InputField({ label, type = 'text', required = false, cla
         <div className={`input-container ${className}`} style={{ position: 'relative', marginBottom: '20px', width: '100%' }}>
             <label style={{
                 position: 'absolute',
-                top: (isFocused || hasValue) ? '-8px' : '16px',
+                top: '-7px', /* Always float on the top border in Adobe XD design */
                 left: '12px',
-                fontSize: (isFocused || hasValue) ? '12px' : '15px',
-                color: isFocused ? 'var(--primary-purple)' : 'var(--text-dark)',
-                backgroundColor: 'var(--bg-color)',
+                fontSize: '13px',
+                color: 'var(--primary-purple)', /* Label is always purple */
+                backgroundColor: 'var(--bg-color)', /* Match the new background */
                 padding: '0 4px',
-                transition: 'all 0.2s ease',
-                pointerEvents: 'none',
                 zIndex: 1,
-                fontWeight: isFocused ? '500' : '400'
+                fontWeight: '500' /* Rubik Medium for floating labels */
             }}>
-                {label} {required && <span style={{ color: 'red' }}>*</span>}
+                {label} {required && <span style={{ color: 'var(--error-color)' }}>*</span>}
             </label>
             <input
                 type={type}
@@ -31,11 +29,11 @@ export default function InputField({ label, type = 'text', required = false, cla
                 onChange={(e) => setHasValue(!!e.target.value)}
                 style={{
                     width: '100%',
-                    padding: '16px 16px',
+                    padding: '16px 14px',
                     border: `1px solid ${isFocused ? 'var(--primary-purple)' : 'var(--border-color)'}`,
                     borderRadius: '6px',
                     outline: 'none',
-                    fontSize: '15px',
+                    fontSize: '14px',
                     backgroundColor: 'transparent',
                     color: 'var(--text-dark)'
                 }}

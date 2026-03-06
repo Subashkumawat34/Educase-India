@@ -15,19 +15,20 @@ export default function Login() {
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
-            padding: '24px',
+            padding: '30px',
         }}>
             <div style={{ marginTop: '20px', marginBottom: '32px' }}>
                 <h1 style={{
                     fontSize: '28px',
                     fontWeight: '500',
-                    marginBottom: '16px',
-                    color: 'var(--text-dark)'
-                }}>Signin to your PopX account</h1>
+                    marginBottom: '14px',
+                    color: 'var(--text-dark)',
+                    lineHeight: '1.2'
+                }}>Signin to your<br />PopX account</h1>
                 <p style={{
                     fontSize: '18px',
                     color: 'var(--text-dark)',
-                    opacity: 0.7,
+                    opacity: 0.6,
                     lineHeight: '1.4',
                     maxWidth: '280px'
                 }}>
@@ -50,11 +51,12 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter password"
                 />
-            </div>
 
-            <div style={{ marginTop: 'auto', marginBottom: '16px' }}>
+                {/* The design explicitly shows the Login button placed immediately after the inputs, 
+            not pushed entirely to the bottom like the signup page. It is also grey (#CBCBCB) when disabled. */}
                 <Button
                     variant={isFormValid ? 'primary' : 'disabled'}
+                    style={{ marginTop: '10px' }}
                     onClick={() => {
                         if (isFormValid) navigate('/profile');
                     }}

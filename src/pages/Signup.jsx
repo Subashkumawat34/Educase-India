@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import InputField from '../components/InputField';
+import Button from '../components/Button';
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -30,29 +31,29 @@ export default function Signup() {
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
-            padding: '24px',
+            padding: '30px',
             overflowY: 'auto'
         }}>
             <div style={{ marginTop: '20px', marginBottom: '32px' }}>
                 <h1 style={{
                     fontSize: '28px',
-                    fontWeight: '500',
+                    fontWeight: '500', // Rubik Medium
                     color: 'var(--text-dark)'
                 }}>Create your PopX account</h1>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <InputField label="Full Name" name="name" required value={formData.name} onChange={handleChange} placeholder="Marry Doe" />
-                <InputField label="Phone number" name="phone" required value={formData.phone} onChange={handleChange} placeholder="Marry Doe" />
-                <InputField label="Email address" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="Marry Doe" />
-                <InputField label="Password" name="password" type="password" required value={formData.password} onChange={handleChange} placeholder="Marry Doe" />
-                <InputField label="Company name" name="company" value={formData.company} onChange={handleChange} placeholder="Marry Doe" />
+                <InputField label="Full Name" name="name" required value={formData.name} onChange={handleChange} placeholder="Enter your full name" />
+                <InputField label="Phone number" name="phone" required value={formData.phone} onChange={handleChange} placeholder="Enter phone number" />
+                <InputField label="Email address" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="Enter email address" />
+                <InputField label="Password" name="password" type="password" required value={formData.password} onChange={handleChange} placeholder="Enter password" />
+                <InputField label="Company name" name="company" value={formData.company} onChange={handleChange} placeholder="Enter company name" />
 
-                <div style={{ marginTop: '16px' }}>
-                    <label style={{ fontSize: '13px', color: 'var(--text-dark)', marginBottom: '8px', display: 'block' }}>
-                        Are you an Agency? <span style={{ color: 'red' }}>*</span>
+                <div style={{ marginTop: '0px' }}>
+                    <label style={{ fontSize: '14px', color: 'var(--text-dark)', marginBottom: '12px', display: 'block', fontWeight: '400' }}>
+                        Are you an Agency?<span style={{ color: 'var(--error-color)', marginLeft: '4px' }}>*</span>
                     </label>
-                    <div style={{ display: 'flex', gap: '24px' }}>
+                    <div style={{ display: 'flex', gap: '32px' }}>
                         <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '15px' }}>
                             <input
                                 type="radio"
@@ -60,7 +61,8 @@ export default function Signup() {
                                 value="yes"
                                 checked={formData.isAgency === 'yes'}
                                 onChange={handleChange}
-                                style={{ accentColor: 'var(--primary-purple)', width: '20px', height: '20px' }}
+                                className="custom-radio"
+                                style={{ accentColor: 'var(--primary-purple)', width: '22px', height: '22px' }}
                             />
                             Yes
                         </label>
@@ -71,7 +73,8 @@ export default function Signup() {
                                 value="no"
                                 checked={formData.isAgency === 'no'}
                                 onChange={handleChange}
-                                style={{ accentColor: 'var(--primary-purple)', width: '20px', height: '20px' }}
+                                className="custom-radio"
+                                style={{ accentColor: 'var(--primary-purple)', width: '22px', height: '22px' }}
                             />
                             No
                         </label>
@@ -79,29 +82,15 @@ export default function Signup() {
                 </div>
             </div>
 
-            <div style={{ marginTop: '32px', marginBottom: '16px' }}>
-                <button
-                    style={{
-                        opacity: isFormValid ? 1 : 0.6,
-                        pointerEvents: isFormValid ? 'auto' : 'none',
-                        width: '100%',
-                        padding: '16px',
-                        borderRadius: '6px', /* The XD design for the signup button is generally rounded similar to inputs */
-                        border: 'none',
-                        fontSize: '16px',
-                        fontWeight: '500',
-                        cursor: 'pointer',
-                        backgroundColor: 'var(--primary-purple)',
-                        color: 'white',
-                        transition: 'opacity 0.2s',
-                        marginTop: 'auto'
-                    }}
+            <div style={{ marginTop: '32px', marginBottom: '0px' }}>
+                <Button
+                    variant={isFormValid ? 'primary' : 'disabled'}
                     onClick={() => {
                         if (isFormValid) navigate('/profile');
                     }}
                 >
                     Create Account
-                </button>
+                </Button>
             </div>
         </div>
     );

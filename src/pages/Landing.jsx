@@ -9,23 +9,23 @@ export default function Landing() {
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
-            padding: '24px',
-            justifyContent: 'flex-end', /* Pushes content to the bottom as seen in design */
+            padding: '30px', /* Closer to the padding seen in XD */
+            justifyContent: 'flex-end',
             paddingBottom: '40px'
         }}>
 
             <div style={{ marginBottom: 'auto', marginTop: 'auto' }}>
                 <h1 style={{
                     fontSize: '28px',
-                    fontWeight: '500',
-                    marginBottom: '16px',
+                    fontWeight: '500', // Rubik Medium
+                    marginBottom: '10px',
                     color: 'var(--text-dark)'
                 }}>Welcome to PopX</h1>
 
                 <p style={{
                     fontSize: '18px',
                     color: 'var(--text-dark)',
-                    opacity: 0.7,
+                    opacity: 0.6, // Lighter opacity to match design
                     lineHeight: '1.4',
                     maxWidth: '280px'
                 }}>
@@ -33,7 +33,7 @@ export default function Landing() {
                 </p>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}> {/* Smaller gap between buttons */}
                 <Button variant="primary" onClick={() => navigate('/signup')}>
                     Create Account
                 </Button>
