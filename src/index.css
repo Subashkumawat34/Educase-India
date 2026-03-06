@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-purple: #6C25FF;
+  --secondary-purple: rgba(108, 37, 255, 0.29); /* Hex 4B is roughly 29% opacity, but Adobe XD design visually looks like a lighter purple */
+  --secondary-bg-purple: #e5d9ff;
+  --bg-color: #F7F8F9;
+  --text-dark: #1D2226;
+  --text-light: #FFFFFF;
+  --border-color: #CBCBCB;
+  --error-color: #ff3333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #e0e0e0; /* Desktop background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* Mobile App Wrapper */
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-wrapper {
+  width: 375px;
+  height: 812px;
+  background-color: var(--bg-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide scrollbar for mobile wrapper */
+.mobile-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.mobile-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
